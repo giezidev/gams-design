@@ -136,9 +136,9 @@ header > nav > a:hover { /*Animação do menu*/
 
 main {
     display: flex;
-    flex-flow: row wrap; /*essa propriedade faz os projetos quebrarem um abaixo do outro*/
-    justify-content: space-evenly;
-    gap: 30px;
+    flex-flow: wrap; /*essa propriedade faz os projetos quebrarem um abaixo do outro*/
+    justify-content: center;
+    gap: 20px;
 }
 
 /*########################################( CARDS )###########################################*/
@@ -149,8 +149,15 @@ main {
     border-radius: 20px; /*arredondamento dos cantos*/
     border: 1px solid black;
     box-shadow: 2px 3px 3px black;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     flex: 1 1 300px;
     max-width: 350px;
+}
+
+.cards .btn {
+    margin-top: auto;
 }
 
 .foto-logo {
@@ -171,7 +178,7 @@ main {
 .btn {
     padding: 12px;
     background-color: lightgreen;
-    border-radius: 15px;
+    border-radius: 10px;
     font-weight: bold;
     box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.623)
 }
