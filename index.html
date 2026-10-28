@@ -9,23 +9,23 @@
   </head>
   <body>
     <header>
-      <img class="logo" src="img/logo500px.jpg" alt="logo" />
-      <h1>Criatividade <br>em movimento</br></h1>
+      <img class="logo" src="img/logo500px.jpg" alt="logo" id="logo">
+      <h1>Criatividade <br>em movimento</h1>
       <button class="menu-btn" aria-label="Abrir menu">
         ☰
       </button>
-      <nav class="menu">
-        <a href="#">Início</a>
-        <a href="#">O que fazemos</a>
-        <a href="#">Nossos clientes</a>
-        <a href="#">Fale Conosco</a>
+      <nav class="menu" id="menu">
+        <a href="#logo">Início</a>
+        <a href="#cards">O que fazemos</a>
+        <a href="#op">Nossos clientes</a>
+        <a href="#att">Fale Conosco</a>
       </nav>
     </header>
 
     <h2 class="nn">Nossos Serviços</h2>
 
     <main>
-      <article class="cards">
+      <article class="cards" id="cards">
         <h3 class="tt">Arte para Bordados</h3>
         <img class="foto-logo" src="img/bordado500px.jpg" alt="" />
         <p class="descricao">
@@ -69,7 +69,7 @@
 
     <h2 class="nn2">Nossos Clientes</h2>
 
-    <section class="op">
+    <section class="op" id="op">
       <img src="img/1.jpg" alt="">
       <img src="img/2.jpg" alt="">
       <img src="img/3.jpg" alt="">
@@ -78,15 +78,43 @@
       <img src="img/6.jpg" alt="">
       <img src="img/7.jpg" alt="">
       <img src="img/8.jpg" alt="">
+
+      <!-- Janela de imagem ampliada -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button
+      class="lightbox-fechar"
+      id="lightbox-fechar"
+      type="button"
+      aria-label="Fechar imagem"
+  >&times;</button>
+
+  <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+</div>
+
     </section>
 
-    <section class="att">
-      <h2 class="att-h2">Faça um orçamento sem compromisso</h2>
-      <button class="btn-w">
-        <img class="iconw" src="img/iconw.png" alt="whatsapp"/> Fale Conosco no
-        WhatsApp
-      </button>
-    </section>
+
+    <section class="att" id="att">
+      <h2 class="att-h2">
+          Faça um orçamento sem compromisso
+      </h2>
+  
+      <a
+          class="btn-w"
+          href="https://wa.me/5598985797997?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Fale conosco pelo WhatsApp"
+      >
+          <img
+              class="iconw"
+              src="img/iconw.png"
+              alt=""
+          />
+          <span>Fale conosco no WhatsApp</span>
+      </a>
+  </section>
+  
 
     <footer class="footer">
       <p class="conteudo-footer">

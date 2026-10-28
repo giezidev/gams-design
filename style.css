@@ -1,90 +1,49 @@
+
 @charset "UTF-8";
 
-*{
-    /*aqui está os resets globais do site*/
+/* =========================
+   RESET GLOBAL
+========================= */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
 body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem; /*Tamanho das letras*/
-    line-height: 1.5em; /*Espaço vertical entre as linhas de texto*/
-    background-image: url(img/fibonati.jpg);
-    background-size: cover; /*A imagem de ajusta a tela inteira*/
-    background-repeat: no-repeat; /*A imagem não ira se repedir*/
-    background-position: center; /*Imagem ira ficar no centro da tela*/
+    font-size: 1rem;
+    line-height: 1.5em;
+    background-image: url("img/fibonati.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
-/*########################################( HEADER )###########################################*/
+
+/* =========================
+   CABEÇALHO
+========================= */
 header {
-    display: flex; /*deixou a caixa manuseavel*/
-    align-items: center; /*alinhou os itens ao centro*/
-    gap: 1rem; /*distancia entre os itens*/
-  }
-  
-  .menu {
     display: flex;
+    align-items: center;
     gap: 1rem;
-    margin-left: auto; /*margin-left: auto empurra o nav para o final do flex*/
-  }
+    flex-wrap: wrap;
+}
 
-  .menu-btn { /*Configurções do icone de menu*/
-    display: none;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-left: auto;
-    padding: 20px;
-  }
-  
-  
-  .menu a { /*configurações dos itens do menu*/
-    margin: 5px;
-    padding: 10px;
-    background: lightgreen;
-    border-radius: 20px;
-    text-decoration: none;
-    font-weight: bold;
-    text-align: center;
-    width: 150px;
-  }
-
-
-  @media (max-width: 768px) { /*largura maxima de 780px*/
-    .menu-btn {
-      display: block; /*o iconi não aparecerá no desktop*/
-    }
-  
-    .menu {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      margin-left: 0;
-    }
-  
-    .menu.active {
-      display: flex;
-    }
-  
-    .menu a {
-      width: 100%;
-      max-width: 300px;
-      margin: 0 auto;
-    }
-  }
-
-.logo { /*Configurações do logo*/
+/* LOGO */
+.logo {
     display: block;
-    width: clamp(60px, 12vw, 140px); /*largura*/
-    height: auto; /*altura*/
+    width: clamp(60px, 12vw, 140px);
+    height: auto;
     margin: 15px;
-    border-radius: 50%; /*bordas arredondadas*/
+    border-radius: 50%;
     border: 2px solid black;
 }
 
-/*Titulo da pagina*/
+/* TÍTULO PRINCIPAL */
 h1 {
     max-width: 760px;
     font-size: clamp(1.5rem, 2vw, 2.5rem);
@@ -93,39 +52,60 @@ h1 {
     text-shadow: 2px 2px 3px black;
 }
 
-/*Icons de navegação*/
+/* =========================
+   MENU DE NAVEGAÇÃO
+========================= */
 nav {
     max-width: 760px;
+    margin-right: 20px;
+}
+
+.menu {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 0 20px; /*distancia "0" em cima e baixo, "20px" esquerda e direita*/
-    margin-left: auto; /*margin-left: auto empurra o nav para o final do flex*/
+    gap: 1rem;
+    margin-left: auto;
 }
 
-/*Configurações do menu*/
-a {
+.menu a {
+    display: block;
+    width: 150px;
     margin: 5px;
-    text-align: center;
-    color: black;
-    text-decoration: none;
+    padding: 10px;
     background-color: lightgreen;
     border-radius: 20px;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.521);
+    text-decoration: none;
     font-weight: bold;
-    width: 100%;
-    max-width: 250px;
-    padding: clamp(6px, 2vw, 12px)
+    text-align: center;
+    color: black;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.521);
+    transition: background-color 0.3s, color 0.3s;
 }
 
-header > nav > a:hover { /*Animação do menu*/
+.menu a:hover {
     background-color: rgba(0, 0, 0, 0.623);
-    color: rgb(255, 255, 255);
-    transition: background-color .5s;
+    color: white;
 }
-/*########################################( MAIN )###########################################*/
+
+/* BOTÃO DO MENU MOBILE */
+.menu-btn {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 20px;
+    color: white;
+}
+
+/* =========================
+   TÍTULO DOS SERVIÇOS
+========================= */
 .nn {
     color: white;
-    margin: 0 0 100px 0;
+    margin: 0 0 100px;
     font-size: 2rem;
     text-align: center;
     text-shadow: 2px 2px 3px black;
@@ -134,62 +114,78 @@ header > nav > a:hover { /*Animação do menu*/
     background-color: hsla(120, 73%, 75%, 0.37);
 }
 
+/* =========================
+   ÁREA PRINCIPAL
+========================= */
 main {
     display: flex;
-    flex-flow: wrap; /*essa propriedade faz os projetos quebrarem um abaixo do outro*/
+    flex-flow: row wrap;
     justify-content: center;
     gap: 20px;
 }
 
-/*########################################( CARDS )###########################################*/
+/* CARDS DE SERVIÇOS */
 .cards {
-    margin: 0 20px; /*espaços cima e baixo ( 0 ), direita e esquerda ( 20 )*/
-    text-align: center; /*texto alinhado ao centro*/
-    padding: 30px; /*espaço interno/bordas para todos os lados de 30px*/
-    border-radius: 20px; /*arredondamento dos cantos*/
-    border: 1px solid black;
-    box-shadow: 2px 3px 3px black;
     display: flex;
     flex-direction: column;
-    gap: 15px;
     flex: 1 1 300px;
     max-width: 350px;
-}
+    gap: 15px;
 
-.cards .btn {
-    margin-top: auto;
-}
+    margin: 0 20px;
+    padding: 30px;
 
-.foto-logo {
-    width: 100%;          /* ocupa a largura do card */
-    max-width: 100%;      /* nunca ultrapassa */
-    height: auto;         /* mantém proporção */
+    text-align: center;
+    border: 1px solid black;
     border-radius: 20px;
-    margin: 30px 0;
-    border: 2px solid black;
-    object-fit: cover;    /* evita distorção */
+    box-shadow: 2px 3px 3px black;
 }
 
+/* IMAGENS DOS CARDS */
+.foto-logo {
+    display: block;
+    width: 100%;
+    height: 250px;
+    margin: 15px 0;
+
+    border: 2px solid black;
+    border-radius: 15px;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+/* DESCRIÇÕES DOS CARDS */
 .descricao {
     font-weight: bold;
 }
 
+/* BOTÕES DOS CARDS */
+.cards .btn {
+    margin-top: auto;
+}
 
 .btn {
+    display: block;
     padding: 12px;
     background-color: lightgreen;
     border-radius: 10px;
     font-weight: bold;
-    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.623)
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.623);
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .btn:hover {
     background-color: rgba(0, 0, 0, 0.623);
-    transition: background-color .3s;
     color: white;
 }
 
-/*######################################( CLIENTES )###########################################*/
+/* =========================
+   TÍTULO DOS CLIENTES
+========================= */
 .nn2 {
     text-align: center;
     color: white;
@@ -201,33 +197,41 @@ main {
     background-color: hsla(120, 73%, 75%, 0.37);
 }
 
-.op { /*elemento pai*/
+/* =========================
+   GALERIA DE CLIENTES
+========================= */
+.op {
     display: flex;
-    flex-wrap: wrap; /*quebra linha automaticamente*/
-    gap: 10px; /*distancia entre os itens*/
-    padding: 10px; /*espaço interno*/
-    justify-content: center; /*itens justificados ao centro*/
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    justify-content: center;
 }
 
-.op img { /*configurações responsivas de imagens*/
-    flex: 1 1 150px; /*1 - cresce igualmente com os outros / 1 - pode encolher. / 150px - É o tamanho inicial do item antes de crescer ou encolher.*/
-    max-width: 200px; /*Define a largura máxima que um elemento pode ter.*/
-    height: 450px; /*altura de 450px*/
-    object-fit: cover; /*imagem não distorce*/
-    border-radius: 8px; /*bordas da imagem redondas*/
+.op img {
+    flex: 1 1 150px;
+    max-width: 200px;
+    height: 450px;
+
+    object-fit: cover;
+    border-radius: 8px;
     transition: transform 0.3s ease;
-    cursor: pointer;
-  }
+    cursor: zoom-in;
+}
 
-  .op img:hover {
-    transform: scale(1.5);
-  }
+.op img:hover {
+    transform: scale(1.05);
+}
 
+/* =========================
+   COMENTÁRIOS
+========================= */
 .coment {
-    padding: 20px;
-    margin: 0px 30px;
     width: 400px;
     height: 120px;
+    padding: 20px;
+    margin: 0 30px;
+
     font-weight: bold;
     box-shadow: 2px 5px 5px lightgreen;
     border-radius: 5px;
@@ -246,12 +250,15 @@ span {
     margin-bottom: 20px;
 }
 
+/* =========================
+   SEÇÃO DE CONTATO
+========================= */
 .att {
     display: flex;
-    text-align: center;
     flex-direction: column;
-    margin-bottom: 30px;
     align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .att-h2 {
@@ -260,31 +267,42 @@ span {
     margin-top: 50px;
 }
 
+/* BOTÃO DO WHATSAPP */
 .btn-w {
     display: flex;
-    border: 2px solid black;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    width: 230px;
+    max-width: calc(100% - 20px);
+    margin-top: 40px;
     padding: 15px 10px;
+
+    border: 2px solid black;
     border-radius: 25px;
     font-weight: bold;
     background-color: lightgreen;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    margin-top: 40px;
+    color: black;
+    text-decoration: none;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .iconw {
     width: 30px;
     height: 30px;
-    margin-left: 5px;
+    flex-shrink: 0;
 }
 
 .btn-w:hover {
     background-color: rgba(0, 0, 0, 0.623);
-    transition: background-color .3s;
     color: white;
 }
 
+/* =========================
+   RODAPÉ
+========================= */
 .footer {
     text-align: center;
     padding: 15px;
@@ -293,4 +311,257 @@ span {
 
 .conteudo-footer {
     font-weight: bold;
+}
+
+/* =========================
+   LIGHTBOX - AMPLIAÇÃO
+========================= */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* MOSTRA A AMPLIAÇÃO */
+.lightbox.active {
+    display: flex;
+}
+
+/* IMAGEM AMPLIADA */
+.lightbox-img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 90vw;
+    max-height: 82vh;
+    max-height: 82dvh;
+
+    object-fit: contain;
+    border: 2px solid white;
+    border-radius: 8px;
+    box-sizing: border-box;
+
+    animation: ampliarImagem 0.25s ease;
+}
+
+/* BOTÃO DE FECHAR */
+.lightbox-fechar {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    color: white;
+    background: transparent;
+    border: none;
+
+    font-size: 42px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* ANIMAÇÃO DE ENTRADA */
+@keyframes ampliarImagem {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* BLOQUEIA A ROLAGEM COM A AMPLIAÇÃO ABERTA */
+body.lightbox-aberto {
+    overflow: hidden;
+}
+
+/* =========================
+   TABLETS E CELULARES
+========================= */
+@media (max-width: 768px) {
+
+    /* CABEÇALHO */
+    header {
+        gap: 0.5rem;
+    }
+
+    /* BOTÃO DO MENU */
+    .menu-btn {
+        display: block;
+    }
+
+    /* MENU RECOLHIDO */
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        gap: 10px;
+    }
+
+    /* MENU ABERTO */
+    .menu.active {
+        display: flex;
+        padding-bottom: 20px;
+        margin-bottom: 15px;
+    }
+
+    .menu a {
+        width: 100%;
+        max-width: 300px;
+        margin: 0;
+    }
+
+    /* TÍTULO DOS SERVIÇOS */
+    .nn {
+        margin-bottom: 50px;
+    }
+
+    /* CARDS */
+    main {
+        gap: 20px;
+    }
+
+    .cards {
+        flex: 1 1 280px;
+        margin: 0 10px;
+        padding: 20px;
+    }
+
+    /* IMAGENS DOS CARDS */
+    .foto-logo {
+        height: 230px;
+    }
+
+    /* GALERIA */
+    .op img:hover {
+        transform: none;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+        padding: 15px;
+    }
+
+    .lightbox-img {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 90vw;
+        max-height: 85dvh;
+        object-fit: contain;
+        cursor: default;
+        transform: none;
+        box-sizing: border-box;
+    }
+
+    .lightbox-fechar {
+        top: 12px;
+        right: 15px;
+        font-size: 38px;
+        padding: 5px;
+    }
+}
+
+/* =========================
+   CELULARES ATÉ 600PX
+========================= */
+@media (max-width: 600px) {
+
+    /* IMAGENS DOS CARDS */
+    .foto-logo {
+        width: 100%;
+        height: 220px;
+        aspect-ratio: 1 / 1;
+    }
+
+    /* GALERIA DE CLIENTES */
+    .op img {
+        flex: 1 1 120px;
+        max-width: 45%;
+        height: 250px;
+    }
+
+    .op img:hover {
+        transform: none;
+    }
+
+    /* COMENTÁRIOS */
+    .coment {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        margin: 10px;
+    }
+
+    /* CONTATO */
+    .att-h2 {
+        padding: 0 15px;
+    }
+
+    /* RODAPÉ */
+    .conteudo-footer {
+        overflow-wrap: anywhere;
+    }
+}
+
+/* =========================
+   CELULARES PEQUENOS
+   ATÉ 400PX
+========================= */
+@media (max-width: 400px) {
+
+    /* LOGO */
+    .logo {
+        width: 60px;
+        margin: 10px;
+    }
+
+    /* TÍTULO PRINCIPAL */
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    /* BOTÃO DO MENU */
+    .menu-btn {
+        padding: 10px;
+    }
+
+    /* TÍTULOS DAS SEÇÕES */
+    .nn,
+    .nn2 {
+        font-size: 1.6rem;
+        padding: 15px;
+    }
+
+    /* CARDS */
+    .cards {
+        flex-basis: 100%;
+        margin: 0 10px;
+        padding: 15px;
+    }
+
+    /* IMAGENS DA GALERIA */
+    .op img {
+        flex: 1 1 100%;
+        max-width: 100%;
+        height: 220px;
+    }
+
+    /* RODAPÉ */
+    .footer {
+        padding: 10px;
+    }
 }
