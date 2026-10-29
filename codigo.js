@@ -1,67 +1,40 @@
-const menuBtn = document.querySelector('.menu-btn');
-const menu = document.querySelector('.menu');
 
-menuBtn.addEventListener('click', () => {
-    const aberto = menu.classList.toggle('active');
+const galeria = document.getElementById('op')
+const lightbox = document.getElementById('lightbox')
+const imagemAmpliada = document.getElementById('lightbox-img')
+const botaoFechar = document.getElementById('lightbox-fechar')
 
-    menuBtn.setAttribute('aria-expanded', aberto);
-    menuBtn.setAttribute(
-        'aria-label',
-        aberto ? 'Fechar menu' : 'Abrir menu'
-    );
-});
+// Abre a imagem clicada
+galeria.querySelectorAll('img').forEach((imagem) => {
+    if (imagem.id === 'lightbox-img') return
 
-
-const imagensClientes = document.querySelectorAll('.op img');
-const lightbox = document.querySelector('#lightbox');
-const lightboxImg = document.querySelector('#lightbox-img');
-const fecharLightbox = document.querySelector('#lightbox-fechar');
-
-function abrirImagem(imagem) {
-    lightboxImg.src = imagem.src;
-    lightboxImg.alt = imagem.alt;
-
-    lightbox.classList.add('active');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('lightbox-aberto');
-
-    fecharLightbox.focus();
-}
-
-function fecharImagem() {
-    lightbox.classList.remove('active');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('lightbox-aberto');
-
-    lightboxImg.src = '';
-}
-
-imagensClientes.forEach((imagem) => {
     imagem.addEventListener('click', () => {
-        abrirImagem(imagem);
-    });
-});
+        imagemAmpliada.src = imagem.src
+        imagemAmpliada.alt = imagem.alt
 
-fecharLightbox.addEventListener('click', fecharImagem);
+        lightbox.setAttribute('aria-hidden', 'false')
+    })
+})
 
-// Fecha ao clicar fora da imagem
-lightbox.addEventListener('click', (evento) => {
-    if (
-        evento.target === lightbox ||
-        evento.target === lightboxImg
-    ) {
-        if (evento.target === lightbox) {
-            fecharImagem();
-        }
-    }
-});
+// Fecha ao clicar no botão
+botaoFechar.addEventListener('click', () => {
+    lightbox.setAttribute('aria-hidden', 'true')
+    imagemAmpliada.src = ''
+})
 
-// Fecha ao pressionar Esc
-document.addEventListener('keydown', (evento) => {
-    if (
-        evento.key === 'Escape' &&
-        lightbox.classList.contains('active')
-    ) {
-        fecharImagem();
-    }
-});
+//botão
+
+const botaoMenu = document.querySelector('.menu-btn')
+const menu = document.getElementById('menu')
+
+botaoMenu.addEventListener('click', () => {
+    menu.classList.toggle('ativo')
+
+    const menuAberto = menu.classList.contains('ativo')
+
+    botaoMenu.setAttribute(
+        'aria-label',
+        menuAberto ? 'Fechar menu' : 'Abrir menu'
+    )
+})
+

@@ -29,14 +29,22 @@ body {
 header {
     display: flex;
     align-items: center;
-    gap: 1rem;
     flex-wrap: wrap;
-}
+    
+    /* Mantém todo o cabeçalho fixo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    
+    /* Aparência e dimensionamento */
+    box-sizing: border-box;
+    }
 
 /* LOGO */
 .logo {
     display: block;
-    width: clamp(60px, 12vw, 140px);
+    width: clamp(60px, 12vw, 120px);
     height: auto;
     margin: 15px;
     border-radius: 50%;
@@ -70,9 +78,9 @@ nav {
 
 .menu a {
     display: block;
-    width: 150px;
+    width: 160px;
     margin: 5px;
-    padding: 10px;
+    padding: 15px;
     background-color: lightgreen;
     border-radius: 20px;
     text-decoration: none;
@@ -200,28 +208,60 @@ main {
 /* =========================
    GALERIA DE CLIENTES
 ========================= */
+
 .op {
     display: flex;
+    width: 90%;
+    margin: 0 auto;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
     padding: 10px;
     justify-content: center;
 }
 
-.op img {
-    flex: 1 1 150px;
-    max-width: 200px;
-    height: 450px;
-
+.op > img {
+    flex: 1 1 100px;
+    max-width: 180px;
+    height: 400px;
     object-fit: cover;
     border-radius: 8px;
-    transition: transform 0.3s ease;
-    cursor: zoom-in;
+    cursor: pointer;
 }
 
-.op img:hover {
-    transform: scale(1.05);
+/* Janela da imagem ampliada */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
 }
+
+.lightbox[aria-hidden="false"] {
+    display: flex;
+}
+
+.lightbox .lightbox-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.lightbox-fechar {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: white;
+    background: transparent;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+}
+
 
 /* =========================
    COMENTÁRIOS
@@ -313,61 +353,6 @@ span {
     font-weight: bold;
 }
 
-/* =========================
-   LIGHTBOX - AMPLIAÇÃO
-========================= */
-.lightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 30px;
-    background-color: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-
-/* MOSTRA A AMPLIAÇÃO */
-.lightbox.active {
-    display: flex;
-}
-
-/* IMAGEM AMPLIADA */
-.lightbox-img {
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: 90vw;
-    max-height: 82vh;
-    max-height: 82dvh;
-
-    object-fit: contain;
-    border: 2px solid white;
-    border-radius: 8px;
-    box-sizing: border-box;
-
-    animation: ampliarImagem 0.25s ease;
-}
-
-/* BOTÃO DE FECHAR */
-.lightbox-fechar {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-
-    color: white;
-    background: transparent;
-    border: none;
-
-    font-size: 42px;
-    line-height: 1;
-    cursor: pointer;
-}
-
 /* ANIMAÇÃO DE ENTRADA */
 @keyframes ampliarImagem {
     from {
@@ -391,15 +376,29 @@ body.lightbox-aberto {
 ========================= */
 @media (max-width: 768px) {
 
-    /* CABEÇALHO */
-    header {
-        gap: 0.5rem;
-    }
-
     /* BOTÃO DO MENU */
+.menu-btn {
+    display: none;
+}
+
+@media (max-width: 768px) {
     .menu-btn {
         display: block;
+        cursor: pointer;
     }
+
+    .menu {
+        display: none;
+    }
+
+    .menu.ativo {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+}
+
 
     /* MENU RECOLHIDO */
     .menu {
@@ -426,7 +425,13 @@ body.lightbox-aberto {
 
     /* TÍTULO DOS SERVIÇOS */
     .nn {
-        margin-bottom: 50px;
+
+    }
+
+    @media (max-width: 768px) {
+        .nn {
+            margin-top: 90px;
+        }
     }
 
     /* CARDS */
@@ -495,7 +500,7 @@ body.lightbox-aberto {
     }
 
     .op img:hover {
-        transform: none;
+        transform: 1;
     }
 
     /* COMENTÁRIOS */
@@ -540,7 +545,6 @@ body.lightbox-aberto {
     }
 
     /* TÍTULOS DAS SEÇÕES */
-    .nn,
     .nn2 {
         font-size: 1.6rem;
         padding: 15px;
