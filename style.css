@@ -430,7 +430,7 @@ body.lightbox-aberto {
 
     @media (max-width: 768px) {
         .nn {
-            margin-top: 90px;
+            margin-top:0;
         }
     }
 
