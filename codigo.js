@@ -37,4 +37,3 @@ botaoMenu.addEventListener('click', () => {
         menuAberto ? 'Fechar menu' : 'Abrir menu'
     )
 })
-

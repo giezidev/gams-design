@@ -1,22 +1,24 @@
-
 @charset "UTF-8";
 
 /* =========================
-   RESET GLOBAL
+   RESET E CONFIGURAÇÕES GERAIS
 ========================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* =========================
-   CONFIGURAÇÕES GERAIS
-========================= */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
-    line-height: 1.5em;
+    line-height: 1.5;
     background-image: url("img/fibonati.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -26,105 +28,111 @@ body {
 /* =========================
    CABEÇALHO
 ========================= */
+
 header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    
-    /* Mantém todo o cabeçalho fixo */
-    top: 0;
-    left: 0;
+    gap: 10px;
+
     width: 100%;
-    z-index: 1000;
-    
-    /* Aparência e dimensionamento */
-    box-sizing: border-box;
-    }
+    padding: 5px 15px;
+
+    background-color: #91ee915e;
+    backdrop-filter: blur(8px);
+}
 
 /* LOGO */
+
 .logo {
     display: block;
-    width: clamp(60px, 12vw, 120px);
+    flex-shrink: 0;
+    width: clamp(60px, 10vw, 80px);
     height: auto;
-    margin: 15px;
-    border-radius: 50%;
+    margin: 5px;
     border: 2px solid black;
+    border-radius: 50%;
 }
 
 /* TÍTULO PRINCIPAL */
+
 h1 {
     max-width: 760px;
-    font-size: clamp(1.5rem, 2vw, 2.5rem);
-    line-height: 1;
     color: white;
+    font-size: clamp(1.3rem, 2vw, 2rem);
+    line-height: 1.1;
     text-shadow: 2px 2px 3px black;
 }
 
 /* =========================
    MENU DE NAVEGAÇÃO
 ========================= */
-nav {
-    max-width: 760px;
-    margin-right: 20px;
-}
 
 .menu {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
+    gap: 10px;
     margin-left: auto;
 }
 
 .menu a {
     display: block;
-    width: 160px;
-    margin: 5px;
-    padding: 15px;
-    background-color: lightgreen;
+    padding: 12px 16px;
     border-radius: 20px;
-    text-decoration: none;
+
+    background-color: lightgreen;
+    color: black;
     font-weight: bold;
     text-align: center;
-    color: black;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.521);
+    text-decoration: none;
+
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     transition: background-color 0.3s, color 0.3s;
 }
 
 .menu a:hover {
-    background-color: rgba(0, 0, 0, 0.623);
+    background-color: rgba(0, 0, 0, 0.75);
     color: white;
 }
 
 /* BOTÃO DO MENU MOBILE */
+
 .menu-btn {
     display: none;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
     margin-left: auto;
-    padding: 20px;
+    padding: 10px 15px;
+
+    border: none;
+    background: transparent;
     color: white;
+
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 /* =========================
    TÍTULO DOS SERVIÇOS
 ========================= */
+
 .nn {
+    margin: 35px 0;
+    padding: 20px;
     color: white;
-    margin: 0 0 100px;
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 3vw, 2rem);
     text-align: center;
     text-shadow: 2px 2px 3px black;
-    border: 1px solid black;
-    padding: 20px;
-    background-color: hsla(120, 73%, 75%, 0.37);
 }
 
 /* =========================
-   ÁREA PRINCIPAL
+   ÁREA DE SERVIÇOS
 ========================= */
+
 main {
     display: flex;
     flex-flow: row wrap;
@@ -133,28 +141,31 @@ main {
 }
 
 /* CARDS DE SERVIÇOS */
+
 .cards {
     display: flex;
+    flex: 1 1 280px;
     flex-direction: column;
-    flex: 1 1 300px;
-    max-width: 350px;
     gap: 15px;
 
-    margin: 0 20px;
-    padding: 30px;
+    max-width: 350px;
+    margin: 0 10px;
+    padding: 25px;
 
-    text-align: center;
     border: 1px solid black;
     border-radius: 20px;
-    box-shadow: 2px 3px 3px black;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+
+    text-align: center;
 }
 
-/* IMAGENS DOS CARDS */
+/* IMAGENS DOS SERVIÇOS */
+
 .foto-logo {
     display: block;
     width: 100%;
-    height: 250px;
-    margin: 15px 0;
+    height: 230px;
+    margin: 10px 0;
 
     border: 2px solid black;
     border-radius: 15px;
@@ -163,12 +174,14 @@ main {
     object-position: center;
 }
 
-/* DESCRIÇÕES DOS CARDS */
+/* DESCRIÇÃO DOS SERVIÇOS */
+
 .descricao {
     font-weight: bold;
 }
 
-/* BOTÕES DOS CARDS */
+/* BOTÕES DOS SERVIÇOS */
+
 .cards .btn {
     margin-top: auto;
 }
@@ -176,33 +189,158 @@ main {
 .btn {
     display: block;
     padding: 12px;
-    background-color: lightgreen;
+
     border-radius: 10px;
-    font-weight: bold;
-    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.623);
+    background-color: lightgreen;
     color: black;
+
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+}
+
+/* =========================
+   ÁREA DE PRODUTOS / CARROSSEL
+========================= */
+
+.produtos {
+    width: 100%;
+    margin: 50px auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.titulo-produtos {
+    margin-bottom: 10px;
+    color: white;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    text-shadow: 2px 2px 3px black;
+}
+
+.subtitulo-produtos {
+    margin-bottom: 25px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+.carrossel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carrossel {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+    min-width: 0;
+    padding: 15px 5px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.carrossel::-webkit-scrollbar {
+    display: none;
+}
+
+.card-produto {
+    display: flex;
+    flex: 0 0 280px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.4);
+    scroll-snap-align: center;
+}
+
+.card-produto img {
+    display: block;
+    width: 100%;
+    height: 190px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.card-produto h3 {
+    font-size: 1.2rem;
+}
+
+.card-produto p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.card-produto .preco {
+    color: #16833b;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.btn-comprar {
+    display: block;
+    width: 100%;
+    margin-top: auto;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: lightgreen;
+    color: black;
+    font-weight: bold;
     text-align: center;
     text-decoration: none;
     transition: background-color 0.3s, color 0.3s;
 }
 
-.btn:hover {
-    background-color: rgba(0, 0, 0, 0.623);
+.btn-comprar:hover {
+    background-color: #16833b;
+    color: white;
+}
+
+.carrossel-btn {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background-color: lightgreen;
+    color: black;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.carrossel-btn:hover {
+    background-color: #16833b;
     color: white;
 }
 
 /* =========================
    TÍTULO DOS CLIENTES
 ========================= */
+
 .nn2 {
-    text-align: center;
-    color: white;
-    font-size: 2rem;
     padding: 20px;
-    margin: 50px 0;
+    color: white;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    text-align: center;
     text-shadow: 2px 2px 3px black;
-    border: 1px solid black;
-    background-color: hsla(120, 73%, 75%, 0.37);
 }
 
 /* =========================
@@ -211,43 +349,50 @@ main {
 
 .op {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+
     width: 90%;
     margin: 0 auto;
-    flex-wrap: wrap;
-    gap: 20px;
     padding: 10px;
-    justify-content: center;
 }
 
 .op > img {
-    flex: 1 1 100px;
+    flex: 1 1 150px;
     max-width: 180px;
     height: 400px;
-    object-fit: cover;
+
     border-radius: 8px;
+    object-fit: cover;
     cursor: pointer;
 }
 
-/* Janela da imagem ampliada */
+/* LIGHTBOX - IMAGEM AMPLIADA */
+
 .lightbox {
-    display: none;
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: rgba(0, 0, 0, 0.9);
-    justify-content: center;
+
+    display: none;
     align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.9);
 }
 
 .lightbox[aria-hidden="false"] {
     display: flex;
 }
 
-.lightbox .lightbox-img {
-    max-width: 90vw;
-    max-height: 85vh;
+.lightbox-img {
+    display: block;
     width: auto;
     height: auto;
+    max-width: 90vw;
+    max-height: 85vh;
     object-fit: contain;
 }
 
@@ -255,59 +400,42 @@ main {
     position: absolute;
     top: 15px;
     right: 25px;
-    color: white;
-    background: transparent;
+
     border: none;
+    background: transparent;
+    color: white;
+
     font-size: 40px;
     cursor: pointer;
 }
 
-
-/* =========================
-   COMENTÁRIOS
-========================= */
-.coment {
-    width: 400px;
-    height: 120px;
-    padding: 20px;
-    margin: 0 30px;
-
-    font-weight: bold;
-    box-shadow: 2px 5px 5px lightgreen;
-    border-radius: 5px;
-    border: 1px solid lightgreen;
-    background-color: rgba(127, 255, 212, 0.226);
-}
-
-span {
-    color: black;
-    padding: 10px;
-}
-
-.stars {
-    color: gold;
-    font-size: 20px;
-    margin-bottom: 20px;
+body.lightbox-aberto {
+    overflow: hidden;
 }
 
 /* =========================
    SEÇÃO DE CONTATO
 ========================= */
+
 .att {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .att-h2 {
+    margin-top: 50px;
+    padding: 0 15px;
+
     color: white;
     text-shadow: 2px 2px 3px black;
-    margin-top: 50px;
 }
 
 /* BOTÃO DO WHATSAPP */
+
 .btn-w {
     display: flex;
     align-items: center;
@@ -321,100 +449,73 @@ span {
 
     border: 2px solid black;
     border-radius: 25px;
-    font-weight: bold;
     background-color: lightgreen;
     color: black;
+
+    font-weight: bold;
     text-decoration: none;
+
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s, color 0.3s;
 }
 
 .iconw {
+    flex-shrink: 0;
     width: 30px;
     height: 30px;
-    flex-shrink: 0;
 }
 
 .btn-w:hover {
-    background-color: rgba(0, 0, 0, 0.623);
+    background-color: rgba(0, 0, 0, 0.75);
     color: white;
 }
 
 /* =========================
    RODAPÉ
 ========================= */
+
 .footer {
-    text-align: center;
     padding: 15px;
     background-color: rgba(127, 255, 212, 0.226);
+    text-align: center;
 }
 
 .conteudo-footer {
     font-weight: bold;
 }
 
-/* ANIMAÇÃO DE ENTRADA */
-@keyframes ampliarImagem {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-/* BLOQUEIA A ROLAGEM COM A AMPLIAÇÃO ABERTA */
-body.lightbox-aberto {
-    overflow: hidden;
-}
-
 /* =========================
    TABLETS E CELULARES
 ========================= */
-@media (max-width: 768px) {
-
-    /* BOTÃO DO MENU */
-.menu-btn {
-    display: none;
-}
 
 @media (max-width: 768px) {
+
+    html {
+        scroll-padding-top: 90px;
+    }
+
+    header {
+        gap: 5px;
+    }
+
     .menu-btn {
         display: block;
-        cursor: pointer;
     }
 
-    .menu {
-        display: none;
-    }
-
-    .menu.ativo {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        margin-bottom: 20px;
-    }
-}
-
-
-    /* MENU RECOLHIDO */
     .menu {
         display: none;
         flex-direction: column;
         align-items: center;
+        gap: 10px;
+
         width: 100%;
         margin: 0;
-        gap: 10px;
+        padding: 0 0 15px;
     }
 
-    /* MENU ABERTO */
+    /* A classe "active" deve ser adicionada/removida pelo JavaScript */
     .menu.active {
         display: flex;
-        padding-bottom: 20px;
-        margin-bottom: 15px;
     }
 
     .menu a {
@@ -423,100 +524,66 @@ body.lightbox-aberto {
         margin: 0;
     }
 
-    /* TÍTULO DOS SERVIÇOS */
-    .nn {
-
-    }
-
-    @media (max-width: 768px) {
-        .nn {
-            margin-top:0;
-        }
-    }
-
-    /* CARDS */
-    main {
-        gap: 20px;
-    }
-
     .cards {
-        flex: 1 1 280px;
-        margin: 0 10px;
+        flex-basis: 280px;
         padding: 20px;
     }
 
-    /* IMAGENS DOS CARDS */
     .foto-logo {
         height: 230px;
     }
 
-    /* GALERIA */
-    .op img:hover {
-        transform: none;
-    }
-
-    /* LIGHTBOX */
     .lightbox {
         padding: 15px;
     }
 
     .lightbox-img {
-        display: block;
-        width: auto;
-        height: auto;
         max-width: 90vw;
         max-height: 85dvh;
-        object-fit: contain;
-        cursor: default;
-        transform: none;
-        box-sizing: border-box;
     }
 
     .lightbox-fechar {
         top: 12px;
         right: 15px;
-        font-size: 38px;
         padding: 5px;
+        font-size: 38px;
+    }
+
+    .carrossel-container {
+        gap: 5px;
+    }
+
+    .card-produto {
+        flex-basis: 260px;
+    }
+
+    .carrossel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
     }
 }
 
 /* =========================
    CELULARES ATÉ 600PX
 ========================= */
+
 @media (max-width: 600px) {
 
-    /* IMAGENS DOS CARDS */
-    .foto-logo {
-        width: 100%;
-        height: 220px;
-        aspect-ratio: 1 / 1;
-    }
-
-    /* GALERIA DE CLIENTES */
-    .op img {
+    .op > img {
         flex: 1 1 120px;
         max-width: 45%;
         height: 250px;
     }
 
-    .op img:hover {
-        transform: 1;
+    .carrossel {
+        gap: 12px;
     }
 
-    /* COMENTÁRIOS */
-    .coment {
-        width: auto;
-        max-width: 100%;
-        height: auto;
-        margin: 10px;
+    .card-produto {
+        flex-basis: 85%;
     }
 
-    /* CONTATO */
-    .att-h2 {
-        padding: 0 15px;
-    }
-
-    /* RODAPÉ */
     .conteudo-footer {
         overflow-wrap: anywhere;
     }
@@ -524,48 +591,48 @@ body.lightbox-aberto {
 
 /* =========================
    CELULARES PEQUENOS
-   ATÉ 400PX
 ========================= */
+
 @media (max-width: 400px) {
 
-    /* LOGO */
     .logo {
         width: 60px;
-        margin: 10px;
+        margin: 5px;
     }
 
-    /* TÍTULO PRINCIPAL */
     h1 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
-    /* BOTÃO DO MENU */
     .menu-btn {
-        padding: 10px;
+        padding: 8px;
     }
 
-    /* TÍTULOS DAS SEÇÕES */
+    .nn,
     .nn2 {
-        font-size: 1.6rem;
         padding: 15px;
+        font-size: 1.5rem;
     }
 
-    /* CARDS */
     .cards {
         flex-basis: 100%;
         margin: 0 10px;
         padding: 15px;
     }
 
-    /* IMAGENS DA GALERIA */
-    .op img {
-        flex: 1 1 100%;
+    .op > img {
+        flex-basis: 100%;
         max-width: 100%;
         height: 220px;
     }
 
-    /* RODAPÉ */
     .footer {
         padding: 10px;
+    }
+
+    .carrossel-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.85rem;
     }
 }
