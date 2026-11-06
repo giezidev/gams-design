@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Loja | Gams Design</title>
+
+    <link rel="stylesheet" href="produtos.css" />
+  </head>
+
+  <body>
+    <main class="loja">
+      <h1>Loja Gams Design</h1>
+
+      <p class="subtitulo">Encontre os produtos que você procura!</p>
+
+      <!-- BARRA DE PESQUISA -->
+
+      <div class="pesquisa-container">
+        <input
+          type="search"
+          id="pesquisa"
+          placeholder="Pesquisar produtos..."
+          aria-label="Pesquisar produtos"
+        />
+
+        <span class="icone-pesquisa">🔍</span>
+      </div>
+
+      <!-- ÁREA DOS PRODUTOS -->
+
+      <section class="produtos" id="lista-produtos">
+        <article class="card-produto">
+          <img src="img/produto1.jpg" alt="Produto 1" />
+
+          <h2>Produto 1</h2>
+
+          <p>Descrição do primeiro produto.</p>
+
+          <p class="preco">R$ 00,00</p>
+
+          <div class="acoes-produto">
+            <a href="https://wa.me/55SEUNUMERO" class="btn-comprar">
+              Comprar
+            </a>
+
+            <button
+              class="btn-adicionar"
+              type="button"
+              aria-label="Adicionar produto ao carrinho"
+              title="Adicionar ao carrinho"
+            >
+              +
+            </button>
+          </div>
+        </article>
+
+        <article class="card-produto">
+            <img src="img/produto1.jpg" alt="Produto 1" />
+  
+            <h2>Produto 1</h2>
+  
+            <p>Descrição do primeiro produto.</p>
+  
+            <p class="preco">R$ 00,00</p>
+  
+            <div class="acoes-produto">
+              <a href="https://wa.me/55SEUNUMERO" class="btn-comprar">
+                Comprar
+              </a>
+  
+              <button
+                class="btn-adicionar"
+                type="button"
+                aria-label="Adicionar produto ao carrinho"
+                title="Adicionar ao carrinho"
+              >
+                +
+              </button>
+            </div>
+          </article>        <article class="card-produto">
+            <img src="img/produto1.jpg" alt="Produto 1" />
+  
+            <h2>Produto 1</h2>
+  
+            <p>Descrição do primeiro produto.</p>
+  
+            <p class="preco">R$ 00,00</p>
+  
+            <div class="acoes-produto">
+              <a href="https://wa.me/55SEUNUMERO" class="btn-comprar">
+                Comprar
+              </a>
+  
+              <button
+                class="btn-adicionar"
+                type="button"
+                aria-label="Adicionar produto ao carrinho"
+                title="Adicionar ao carrinho"
+              >
+                +
+              </button>
+            </div>
+          </article>        <article class="card-produto">
+            <img src="img/produto1.jpg" alt="Produto 1" />
+  
+            <h2>Produto 1</h2>
+  
+            <p>Descrição do primeiro produto.</p>
+  
+            <p class="preco">R$ 00,00</p>
+  
+            <div class="acoes-produto">
+              <a href="https://wa.me/55SEUNUMERO" class="btn-comprar">
+                Comprar
+              </a>
+  
+              <button
+                class="btn-adicionar"
+                type="button"
+                aria-label="Adicionar produto ao carrinho"
+                title="Adicionar ao carrinho"
+              >
+                +
+              </button>
+            </div>
+          </article>        <article class="card-produto">
+            <img src="img/produto1.jpg" alt="Produto 1" />
+  
+            <h2>Produto 1</h2>
+  
+            <p>Descrição do primeiro produto.</p>
+  
+            <p class="preco">R$ 00,00</p>
+  
+            <div class="acoes-produto">
+              <a href="https://wa.me/55SEUNUMERO" class="btn-comprar">
+                Comprar
+              </a>
+  
+              <button
+                class="btn-adicionar"
+                type="button"
+                aria-label="Adicionar produto ao carrinho"
+                title="Adicionar ao carrinho"
+              >
+                +
+              </button>
+            </div>
+          </article>        <article class="card-produto">
+            <img src="img/produto1.jpg" alt="Produto 1" />
+  
+            <h2>Produto 1</h2>
+  
+            <p>Descrição do primeiro produto.</p>
+  
+            <p class="preco">R$ 00,00</p>
+  
+            <div class="acoes-produto">
+              <a href="https://wa.me/55SEUNUMERO" class="btn-comprar">
+                Comprar
+              </a>
+  
+              <button
+                class="btn-adicionar"
+                type="button"
+                aria-label="Adicionar produto ao carrinho"
+                title="Adicionar ao carrinho"
+              >
+                +
+              </button>
+            </div>
+          </article>
+
+      <p id="mensagem-vazia">Nenhum produto encontrado.</p>
+    </main>
+
+    <!-- BOTÃO FLUTUANTE DO CARRINHO -->
+
+    <button class="btn-carrinho" id="btn-carrinho" aria-label="Abrir carrinho">
+      <span class="icone-carrinho">🛒</span>
+
+      <span>Meu carrinho</span>
+
+      <span class="contador-carrinho" id="contador-carrinho"> 0 </span>
+    </button>
+
+    <script src="produtos.js"></script>
+  </body>
+</html>

@@ -1,124 +1,162 @@
 
-/* =========================
-   ÁREA DE PRODUTOS
-========================= */
+@charset "UTF-8";
 
-.produtos {
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-image: url("img/fibonati.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* CONTAINER PRINCIPAL */
+
+.loja {
     width: 100%;
-    padding: 50px 20px;
-    margin: 50px auto;
+    max-width: 1400px;
+    min-height: 100vh;
+    margin: auto;
+    padding: 40px 20px;
+
     text-align: center;
 }
 
-/* TÍTULO */
+/* TÍTULOS */
 
-.titulo-produtos {
-    color: white;
-    font-size: clamp(1.7rem, 3vw, 2.3rem);
-    text-shadow: 2px 2px 3px black;
+.loja h1 {
     margin-bottom: 10px;
+    color: white;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    text-shadow: 2px 2px 3px black;
 }
 
-/* SUBTÍTULO */
-
-.subtitulo-produtos {
+.subtitulo {
+    margin-bottom: 30px;
     color: white;
-    font-size: 1rem;
-    margin-bottom: 35px;
     text-shadow: 1px 1px 2px black;
 }
 
-/* CONTAINER DO CARROSSEL */
+/* BARRA DE PESQUISA */
 
-.carrossel-container {
-    display: flex;
-    align-items: center;
+.pesquisa-container {
+    position: relative;
+
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+#pesquisa {
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+
+    border: 2px solid #16833b;
+    border-radius: 30px;
+    outline: none;
+    background-color: white;
+    font-size: 1rem;
+    color: black;
+}
+
+#pesquisa:focus {
+    border-color: lightgreen;
+    box-shadow: 0 0 8px lightgreen;
+}
+
+.icone-pesquisa {
+    position: absolute;
+    top: 50%;
+    right: 18px;
+
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* GRADE DE PRODUTOS */
+
+.produtos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(240px, 280px));
+
     justify-content: center;
-    gap: 15px;
-    max-width: 1200px;
-    margin: auto;
+    gap: 25px;
 }
 
-/* CARROSSEL */
-
-.carrossel {
-    display: flex;
-    flex: 1;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    padding: 15px 5px;
-}
-
-.carrossel::-webkit-scrollbar {
-    display: none;
-}
-
-/* CARD INDIVIDUAL */
+/* CARDS */
 
 .card-produto {
     display: flex;
-    flex: 0 0 280px;
     flex-direction: column;
     align-items: center;
     gap: 12px;
 
     padding: 20px;
-    background-color: white;
+
     border: 1px solid black;
     border-radius: 15px;
-    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.4);
 
-    scroll-snap-align: center;
+    background-color: white;
+
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.4);
 }
 
-/* IMAGEM DO PRODUTO */
+/* IMAGENS */
 
 .card-produto img {
+    display: block;
     width: 100%;
     height: 190px;
-    object-fit: cover;
+
     border-radius: 10px;
+    object-fit: cover;
 }
 
-/* NOME DO PRODUTO */
+/* TEXTOS */
 
-.card-produto h3 {
+.card-produto h2 {
     font-size: 1.2rem;
 }
-
-/* DESCRIÇÃO */
 
 .card-produto p {
     font-size: 0.95rem;
     line-height: 1.5;
 }
 
-/* PREÇO */
-
-.card-produto .preco {
-    font-size: 1.3rem;
-    font-weight: bold;
+.preco {
     color: #16833b;
+    font-size: 1.3rem !important;
+    font-weight: bold;
 }
 
-/* BOTÃO DE VISUALIZAÇÃO */
+/* BOTÃO DE COMPRA */
 
 .btn-comprar {
+    display: block;
     width: 100%;
     margin-top: auto;
     padding: 12px;
 
-    background-color: lightgreen;
     border-radius: 10px;
 
+    background-color: lightgreen;
     color: black;
+
     font-weight: bold;
     text-decoration: none;
 
-    transition: background-color 0.3s, color 0.3s;
+    transition: 0.3s;
 }
 
 .btn-comprar:hover {
@@ -126,61 +164,150 @@
     color: white;
 }
 
-/* BOTÕES DE NAVEGAÇÃO */
 
-.carrossel-btn {
-    flex-shrink: 0;
-    width: 45px;
-    height: 45px;
+/* BOTÃO FLUTUANTE DO CARRINHO */
 
-    border: none;
-    border-radius: 50%;
+.btn-carrinho {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 15px 20px;
+
+    border: 2px solid black;
+    border-radius: 30px;
+
     background-color: lightgreen;
+    color: black;
 
-    font-size: 1.3rem;
+    font-size: 1rem;
+    font-weight: bold;
+
     cursor: pointer;
+
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.4);
+
     transition: 0.3s;
 }
 
-.carrossel-btn:hover {
+.btn-carrinho:hover {
     background-color: #16833b;
     color: white;
 }
 
-/* TABLETS E CELULARES */
+.icone-carrinho {
+    font-size: 1.3rem;
+}
 
-@media (max-width: 768px) {
+/* CONTADOR DE PRODUTOS */
 
-    .produtos {
-        padding: 35px 10px;
+.contador-carrinho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 23px;
+    height: 23px;
+
+    border-radius: 50%;
+
+    background-color: white;
+    color: black;
+
+    font-size: 0.8rem;
+}
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .btn-carrinho {
+        right: 15px;
+        bottom: 15px;
+        padding: 12px 16px;
+        font-size: 0.9rem;
     }
 
-    .carrossel-container {
-        gap: 5px;
+}
+
+
+/* MENSAGEM DE PESQUISA */
+
+#mensagem-vazia {
+    display: none;
+    margin-top: 30px;
+
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+
+    .loja {
+        padding: 30px 15px;
+    }
+
+    .produtos {
+        grid-template-columns: 1fr;
     }
 
     .card-produto {
-        flex-basis: 260px;
-    }
-
-    .carrossel-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
+        width: 100%;
+        max-width: 350px;
+        margin: auto;
     }
 }
 
-/* CELULARES PEQUENOS */
 
-@media (max-width: 400px) {
+/* ÁREA DOS BOTÕES DOS PRODUTOS */
 
-    .card-produto {
-        flex-basis: 85%;
-    }
+.acoes-produto {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
-    .carrossel-btn {
-        width: 30px;
-        height: 30px;
-        font-size: 0.85rem;
-    }
+    width: 100%;
+    margin-top: auto;
+}
+
+/* BOTÃO COMPRAR */
+
+.acoes-produto .btn-comprar {
+    flex: 1;
+    margin-top: 0;
+}
+
+/* BOTÃO ADICIONAR */
+
+.btn-adicionar {
+    flex-shrink: 0;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #16833b;
+    color: white;
+
+    font-size: 1.8rem;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-adicionar:hover {
+    background-color: #0d5726;
+    transform: scale(1.05);
 }
